@@ -1,0 +1,547 @@
+
+#btn-aeropuerto{
+    margin-bottom: -3%;
+}
+/* Estilos para del boton1 */
+#btn1 {
+    display: inline-block;
+    padding: 12px 24px;
+    margin: 0 10px;
+    border: none;
+    border-radius: 15px;
+    background-color: #0ac001; /* Azul */
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+  }
+  
+  #btn1:hover {
+    background-color: #099b01; /* Azul más oscuro */
+  }
+  
+  #btn1:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px #0ce700b4; /* Azul semitransparente */
+  }
+  
+  #btn1:active {
+    transform: scale(0.85);
+  }
+/* Fin del botón1*/
+
+/* Estilos para del boton2 */
+#btn2 {
+    display: inline-block;
+    padding: 12px 24px;
+    margin: 0 10px;
+    border: none;
+    border-radius: 15px;
+    background-color: #facc15; /* Azul */
+    color: rgb(0, 0, 0);
+    font-size: 16px;
+    font-weight: 600;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+  }
+  
+  #btn2:hover {
+    background-color: #e1b400; /* Azul más oscuro */
+  }
+  
+  #btn2:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px #ffcc00ac; /* Azul semitransparente */
+  }
+  
+  #btn2:active {
+    transform: scale(0.85);
+  }
+/* Fin del botón2*/
+
+div#nosotros {
+    width: 70%;
+    margin: 0 auto;
+}
+
+/* Media query para pantallas grandes */
+@media screen and (max-width: 1980px) {
+    #txtotal h1{
+        width: 50%;
+        max-width: 80vw;
+    }
+
+    #textos {
+        position: absolute;
+        font-size: 45px;
+        top: 20%;
+    }
+
+    #segundo {
+        font-size: 12px;
+        margin-top: 20px;
+    }
+    #boton1 {
+        font-size: 16px;
+        position: absolute;
+        top: 110%;
+    }
+}
+/* Media query para pantallas grandes */
+@media screen and (max-width: 1440px) {
+    #btn-aeropuerto{
+        margin-bottom: -4%;
+    }
+    #txtotal h1{
+        width: 50%;
+        max-width: 80vw;
+    }
+
+    #textos {
+        position: absolute;
+        font-size: 45px;
+        top: 20%;
+    }
+
+    #segundo {
+        font-size: 12px;
+        margin-top: 20px;
+    }
+    #boton1 {
+        font-size: 16px;
+        position: absolute;
+        top: 110%;
+    }
+}
+
+/* Media query para pantallas medianas */
+@media screen and (max-width: 1200px) {
+    #btn-aeropuerto{
+        margin-bottom: -5%;
+    }
+    #txtotal h1{
+        width: 50%;
+        max-width: 80vw;
+    }
+
+    #textos {
+        position: absolute;
+        font-size: 45px;
+        top: 15%;
+    }
+
+    h2#segundo {
+        width: 100%;
+        position: absolute;
+        font-size: 18px;
+        top: 50%;
+    }
+    #boton1 {
+        font-size: 16px;
+        position: absolute;
+        top: 110%;
+    }
+}
+
+/* Media query para pantallas tablets */
+@media screen and (max-width: 1000px) {
+    #btn-aeropuerto{
+        margin-bottom: -6%;
+    }
+    picture.image_turistas{
+        width: 100%;
+    }
+    #txtotal h1{
+        width: 50%;
+        max-width: 80vw;
+    }
+
+    #textos {
+        position: absolute;
+        font-size: 40px;
+        top: 15%;
+    }
+
+    h2#segundo {
+        width: 100%;
+        position: absolute;
+        font-size: 18px;
+        top: 35%;
+    }
+    #boton1 {
+        font-size: 14px;
+        position: absolute;
+        top: 43%;
+    }
+}
+
+/* Media query para pantallas celulares */
+@media screen and (max-width: 768px) {
+    #btn-aeropuerto{
+        margin-bottom: -8%;
+    }
+    #logotipo {
+        position: relative;
+        margin-left: -50%;
+        width: 100px;
+    }
+    picture.image_turistas{
+        width: 100%;
+    }
+    #txtotal h1{
+        width: 70%;
+        max-width: 80vw;
+    }
+
+    #textos {
+        position: absolute;
+        font-size: 35px;
+        top: 15%;
+    }
+
+    h2#segundo {
+        width: 100%;
+        position: absolute;
+        font-size: 17px;
+        top: 40%;
+    }
+    #boton1 {
+        font-size: 14px;
+        position: absolute;
+        top: 70%;
+    }
+}
+
+/* Media query para pantallas celulares mini */
+@media screen and (max-width: 530px) {
+    #btn-aeropuerto{
+        margin-bottom: -13%;
+    }
+    picture.image_turistas{
+        width: 100%;
+    }
+    #txtotal h1{
+        width: 80%;
+        max-width: 80vw;
+    }
+
+    #textos {
+        position: absolute;
+        font-size: 30px;
+        top: 15%;
+    }
+
+    h2#segundo {
+        width: 80%;
+        position: absolute;
+        font-size: 15px;
+        top: 40%;
+    }
+    #boton1 {
+        font-size: 14px;
+        position: absolute;
+        top: 80%;
+    }
+    /* Estilos para del boton1-aeropuerto */
+#btn1 {
+    width: 40%;
+    display: inline-block;
+    padding: 12px 10px;
+    margin: 0 5px;
+    border: none;
+    border-radius: 15px;
+    background-color: #0ac001; /* Azul */
+    color: white;
+    font-size: 12px;
+    font-weight: 600;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+  }
+  
+  #btn1:hover {
+    background-color: #099b01; /* Azul más oscuro */
+  }
+  
+  #btn1:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px #0ce700b4; /* Azul semitransparente */
+  }
+  
+  #btn1:active {
+    transform: scale(0.98);
+  }
+/* Fin del botón1*/
+
+/* Estilos para del boton2 - aeropuerto */
+#btn2 {
+    width: 40%;
+    display: inline-block;
+    padding: 12px 10px;
+    margin: 0 5px;
+    border: none;
+    border-radius: 15px;
+    background-color: #facc15; /* Azul */
+    color: rgb(0, 0, 0);
+    font-size: 12px;
+    font-weight: 600;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+  }
+  
+  #btn2:hover {
+    background-color: #e1b400; /* Azul más oscuro */
+  }
+  
+  #btn2:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px #ffcc00ac; /* Azul semitransparente */
+  }
+  
+  #btn2:active {
+    transform: scale(0.85);
+  }
+/* Fin del botón2*/
+}
+
+picture#foto2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+#segundo{
+    left: 2%;
+    width: 50%;
+    bottom: 20%;
+    position: absolute;
+    color: white;
+    font-size: 20px;
+    font-weight: 600;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
+}
+#textos {
+    left: 2%;
+    margin-bottom: 42%;
+}
+
+#navegador a {
+    font-weight: 800;
+    color: #000; /* Color inicial, ajusta según tus necesidades */
+    text-decoration: none;
+    transition: all .2s ease;
+    display: inline-block; /* Esto permite que el enlace cambie de tamaño */
+}
+
+#navegador a:hover {
+    color: #ffffff; /* Color al pasar el cursor, ajusta según tus necesidades */
+    font-size: 1.1em; /* Aumenta el tamaño del texto al pasar el cursor */
+    transform: translateY(-5px); /* Mueve el enlace ligeramente hacia arriba */
+}
+
+/* Estilos para el botón de submit */
+.btn-submit {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    background-color:#facc15;
+    color: #000000;
+    font-weight: bold;
+    padding: 10px;
+    border-radius: 20px;
+    border: none; /* Agregado un borde nulo */
+    transition: background-color 0.3s ease; /* Transición suave */
+}
+
+.btn-submit:hover {
+    background-color: #f7d137;
+    color: #ffffff;
+    cursor: pointer;
+}
+
+/* Estilos para los controles de formulario */
+.form-control {
+    display: block;
+    margin-top: 5px;
+    width: 100%;
+    padding: 6px 10px; /* Ajustado el padding para mayor espacio */
+    border: 2px solid rgb(234, 234, 234);
+    background-color: #fff;
+    border-radius: 6px;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Transiciones suaves */
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: rgb(249, 115, 22); /* Color de borde al enfocar */
+    box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.3); /* Sombra al enfocar */
+}
+
+/* Estilos para el texto general */
+.elementor-widget-container p {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #000000;
+    margin-bottom: 10px;
+}
+
+/* Estilos para los íconos de lista */
+.elementor-icon-list-icon {
+    color: #f0bb27; /* Amarillo */
+}
+
+/* Estilos para el texto de lista */
+.elementor-icon-list-text {
+    font-size: 16px;
+    color: #3a3636;
+}
+
+/* Estilos para el contenedor de la lista */
+.elementor-icon-list-items {
+    list-style: none;
+    padding-left: 0;
+}
+
+/* Espaciado entre elementos de lista */
+.elementor-icon-list-items .elementor-icon-list-item {
+    margin-bottom: 10px;
+}
+
+
+
+.background-decor {
+    position: absolute;
+    border-radius: 50%;
+}
+.decor-1 {
+
+    background-color: #FEF3C7; /* bg-yellow-100 */
+    width: 340px;
+    height: 340px;
+    top: 100px;
+    left: 150px;
+}
+.decor-2 {
+    border:3px solid #fff200;
+    width: 150px;
+    height: 150px;
+    top: 180px;
+    left: 105px;
+}
+
+.navbar-list{
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+#car-image{
+    width: 200px;
+    height: 100px;
+}
+
+.image_turistas{
+    margin-top: 40px;
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+}
+
+
+/*---------BOTÓN ACCIÓN A COMPRAR---------*/
+.btn-servicio {
+    left: 0%;
+    top: 270px;
+    background-color: #facc15; /* Color verde */
+    color: rgb(0, 0, 0);
+    border: none;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 18px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 25px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+    position: absolute;
+    overflow: hidden;
+}
+
+.btn-servicio:hover {
+    background-color: #1500b3; /* Un verde más oscuro */
+    color: #fff;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    transform: translateY(-5px);
+}
+
+.btn-servicio:active {
+    background-color: #1500b3;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+    transform: translateY(0);
+}
+
+.btn-servicio::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background-color: rgba(255, 255, 255, 0.432);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.6s ease, height 0.6s ease;
+}
+
+.btn-servicio:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+.service-title {
+    color: #0056b3;
+    font-size: 28px;
+    margin-bottom: 15px;
+}
+
+.service-description {
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.service-list h3 {
+    color: #333;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.service-list ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.service-list li {
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+.service-list i {
+    color: #0056b3;
+    margin-right: 10px;
+}
+
+.elementor-element-446631e .elementor-widget-container .service-cta {
+    font-size: 16px;
+    font-style: italic;
+    color: #555;
+    margin-top: 18px;
+}

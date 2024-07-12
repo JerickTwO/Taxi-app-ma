@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carrito de Compras</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 p-10">
+  <div class="max-w-md mx-auto bg-white shadow-lg rounded-lg p-6">
+    <h2 class="text-2xl font-bold mb-4">Carrito de Compras  </h2>
+    
+    <div class="flex items-center justify-between mb-4">
+      <div class="flex items-center">
+        <img id="selected-car-image" src="images/suv.png" width="80" height="60" class="rounded mr-4" alt="">
+        <div>
+          <h3 id="selected-car-title" class="font-bold"> </h3>
+          <div class="flex items-center mt-2">
+            <span id="cart-items" class="font-black text-red-500"></span>
+          </div>
+        </div>
+      </div>
+      <div class="text-right">
+        <button class="w-6 h-6 text-red-500 ml-4">🗑️</button>
+      </div>
+    </div>
+
+    <div class="flex items-center justify-between border-t pt-4 mt-4">
+      <span class="text-lg font-bold">Total: </span>
+      <span id="total-price" class="text-lg font-bold"></span>
+    </div>
+
+    <button id="proceed-to-checkout" class="w-full bg-black text-white py-2 rounded mt-4">Proceed to Checkout</button>
+  </div>
+<script src="js/cart.js"></script>
+</body>
+</html>
