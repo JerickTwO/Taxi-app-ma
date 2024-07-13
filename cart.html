@@ -5,11 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Carrito de Compras</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="icon" style="filter: invert(99%) sepia(2%) saturate(15%) hue-rotate(119deg) brightness(106%) contrast(100%);" href="./images/logo3.jpeg" type="image/x-icon">
+
 </head>
 <body class="bg-gray-100 p-10">
   <div class="max-w-md mx-auto bg-white shadow-lg rounded-lg p-6">
     <h2 class="text-2xl font-bold mb-4">Carrito de Compras</h2>
-    
     <div class="flex items-center justify-between mb-4">
       <div class="flex items-center">
         <img id="selected-car-image" src="images/suv.png" width="80" height="60" class="rounded mr-4" alt="">
@@ -29,10 +30,12 @@
       <span class="text-lg font-bold">Total: </span>
       <span id="total-price" class="text-lg font-bold"></span>
     </div>
-
-    <button id="proceed-to-checkout" class="w-full bg-black text-white py-2 rounded mt-4">Proceed to Checkout</button>
+    <button id="proceed-to-checkout" class="w-full bg-black text-white py-2 rounded mt-4 hover:bg-yellow-400">Ir a Pagar</button>
   </div>
 <script>
+  document.getElementById('proceed-to-checkout').addEventListener('click', function() {
+    window.location.href = 'checkout.html';
+});
   document.addEventListener('DOMContentLoaded', function() {
     // Retrieve form data from localStorage
     const form1Data = JSON.parse(localStorage.getItem('form1'));
@@ -41,9 +44,11 @@
     // Function to display form data
     function displayFormData(formData) {
       if (formData) {
-        document.getElementById('selected-car-title').textContent = `${formData.carType.charAt(0).toUpperCase() + formData.carType.slice(1)} from ${formData.pickup} to ${formData.dropoff}`;
-        document.getElementById('cart-items').textContent = `Time: ${formData.time}, Date: ${formData.date}, Passengers: ${formData.passengers}`;
-        document.getElementById('total-price').textContent = `$${formData.total}`;
+        document.getElementById('selected-car-title').innerHTML = `<strong>Carro: </strong>${formData.carType.charAt(0).toUpperCase() + formData.carType.slice(1)}
+        <br><strong>Desde: </strong> ${formData.pickup.toUpperCase()} 
+        <br> <strong>Traslado a: </strong> ${formData.dropoff} <br> <strong>Día: </strong> ${formData.date}<br> <strong>Hora: </strong>${formData.time}`;
+        document.getElementById('cart-items').innerHTML = `<br> <strong>Pasajeros: </strong> ${formData.passengers}`;
+        document.getElementById('total-price').innerHTML = `$${formData.total}`;
       }
     }
 
@@ -54,6 +59,17 @@
       displayFormData(form2Data);
     }
   });
+  document.getElementById('proceed-to-checkout').addEventListener('click', function() {
+      // Guardar los datos en localStorage
+      localStorage.setItem('carImage', formData.carImage);
+      localStorage.setItem('carType', formData.carType);
+      localStorage.setItem('subtotal', formData.subtotal);
+      localStorage.setItem('discount', formData.discount);
+      localStorage.setItem('total', formData.total);
+
+      // Redirigir a la página de checkout
+      window.location.href = 'checkout.html';
+    });
 </script>
 </body>
 </html>

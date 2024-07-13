@@ -2,6 +2,9 @@
 #btn-aeropuerto{
     margin-bottom: -3%;
 }
+.uppercase-text {
+    text-transform: uppercase;
+  }
 /* Estilos para del boton1 */
 #btn1 {
     display: inline-block;

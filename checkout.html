@@ -4,159 +4,153 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="styles.css">
+
 </head>
 <body>
-<!--
-// v0 by Vercel.
-// https://v0.dev/t/ljNahkiCp3Q
--->
-
 <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
-    <div class="space-y-6 border-2 p-6 rounded-lg">
-      <div>
-        <h2 class="text-2xl font-bold">Order Summary</h2>
-        <div class="mt-4 space-y-4">
-          <div class="flex items-center justify-between">
-            <div class="flex items-center space-x-4">
-              <img
-                src="images/suv.png"
-                alt="Product Image"
-                width="80"
-                height="60"
-                class="rounded-md"
-                style=" object-fit: cover;"
-              />
-              <div>
-                <h3 class="text-lg font-medium"></h3>
-                <p class="text-muted-foreground">Color: Negro</p>
-              </div>
+  <div class="space-y-6 border-2 p-6 rounded-lg">
+    <div>
+      <h2 class="text-2xl font-bold">Order Summary</h2>
+      <div class="mt-4 space-y-4">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center space-x-4">
+            <img
+              id="car-image"
+              alt="Product Image"
+              width="80"
+              height="60"
+              class="rounded-md"
+              style="object-fit: cover;"
+            />
+            <div>
+              <h3 class="text-lg font-bold" > Carro: <span class="uppercase text-sm " id="car-type"></span></h3>
             </div>
-            <div class="text-lg font-medium">$24.00</div>
           </div>
-        </div>
-      </div>
-      <div>
-        <h2 class="text-2xl font-bold">Order Total</h2>
-        <div class="mt-4 space-y-2">
-          <div class="flex items-center justify-between">
-            <span class="text-muted-foreground">Subtotal</span>
-            <span class="text-lg font-medium">$24.00</span>
-          </div>
-
-          <div class="flex items-center justify-between">
-            <span class="text-muted-foreground">Discount</span>
-            <span class="text-lg font-medium text-green-500">-$0.50</span>
-          </div>
-          <div data-orientation="horizontal" role="none" class="shrink-0 bg-border h-[1px] w-full"></div>
-          <div class="flex items-center justify-between">
-            <span class="text-lg font-medium">Total</span>
-            <span class="text-2xl font-bold">$23.50</span>
-          </div>
+          <div class="text-lg font-medium" id="car-subtotal"></div>
         </div>
       </div>
     </div>
-    <div class="space-y-6 border-2 p-6 rounded-lg">
-      <div>
-        <h2 class="text-2xl font-bold">Shipping Information</h2>
-        <form class="mt-4 space-y-4">
-          <div class="grid grid-cols-2 gap-4">
-            <div>
-              <label
-                class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-                for="name"
-              >
-                Name
-              </label>
-              <input
-                class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
-                id="name"
-                placeholder="John Doe"
-              />
-            </div>
-            <div>
-              <label
-                class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-                for="email"
-              >
-                Email
-              </label>
-              <input
-                class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
-                id="email"
-                placeholder="john@example.com"
-                type="email"
-              />
-            </div>
-          </div>
-          <div>
-            <label
-              class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-              for="address"
-            >
-              Address
-            </label>
-            <textarea
-              class="flex min-h-[80px] w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
-              id="address"
-              placeholder="123 Main St, Anytown USA"
-            ></textarea>
-          </div>
-        </form>
+    <div>
+      <h2 class="text-2xl font-bold">Order Total</h2>
+      <div class="mt-4 space-y-2">
+        <div class="flex items-center justify-between">
+          <span class="text-muted-foreground">Subtotal</span>
+          <span class="text-lg font-medium" id="subtotal"></span>
+        </div>
+
+        <div class="flex items-center justify-between">
+          <span class="text-muted-foreground">Discount</span>
+          <span class="text-lg font-medium text-green-500" id="discount"></span>
+        </div>
+        <div data-orientation="horizontal" role="none" class="shrink-0 bg-border h-[1px] w-full"></div>
+        <div class="flex items-center justify-between">
+          <span class="text-lg font-medium">Total</span>
+          <span class="text-2xl font-bold" id="total"></span>
+        </div>
       </div>
-      <div>
-        <h2 class="text-2xl font-bold">Payment Information</h2>
-        <form class="mt-4 space-y-4">
+    </div>
+  </div>
+  <div class="space-y-6 border-2 p-6 rounded-lg">
+    <div>
+      <h2 class="text-2xl font-bold"> Información de Pago</h2>
+      <form class="mt-4 space-y-4">
+        <div class="grid grid-cols-2 gap-4">
           <div>
-            <label
-              class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-              for="card-number"
-            >
-              Card Number
+            <label class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+              for="name">
+              Nombre
             </label>
             <input
               class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
-              id="card-number"
-              placeholder="4111 1111 1111 1111"
-              type="text"
-            />
+              id="name" placeholder="John Doe" />
           </div>
-          <div class="grid grid-cols-2 gap-4">
-            <div>
-              <label
-                class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-                for="expiry-date"
-              >
-                Expiry Date
-              </label>
-              <input
-                class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
-                id="expiry-date"
-                placeholder="MM/YY"
-                type="text"
-              />
-            </div>
-            <div>
-              <label
-                class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-                for="cvc"
-              >
-                CVC
-              </label>
-              <input
-                class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
-                id="cvc"
-                placeholder="123"
-                type="text"
-              />
-            </div>
+          <div>
+            <label class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+              for="email">
+              Email
+            </label>
+            <input
+              class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+              id="email" placeholder="john@example.com" type="email" />
           </div>
-        </form>
-      </div>
-      <button class="inline-flex bg-[#007b5e] text-white items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-11 rounded-md px-8 w-full button">
-        Place Order
-      </button>
+        </div>
+        <div>
+          <label class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+            for="address">
+            Dirección
+          </label>
+          <textarea
+            class="flex min-h-[80px] w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+            id="address" placeholder="123 Main St, Anytown USA"></textarea>
+        </div>
+      </form>
     </div>
+    <div>
+      <form class="mt-4 space-y-4">
+        <div>
+          <label class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+            for="card-number">
+            Número de Tarjeta
+          </label>
+          <input
+            class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+            id="card-number" placeholder="4111 1111 1111 1111" type="text" />
+        </div>
+        <div class="grid grid-cols-2 gap-4">
+          <div>
+            <label class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+              for="expiry-date">
+              Fecha de Expiración
+            </label>
+            <input
+              class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+              id="expiry-date" placeholder="MM/YY" type="text" />
+          </div>
+          <div>
+            <label class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+              for="cvc">
+              CVC
+            </label>
+            <input
+              class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+              id="cvc" placeholder="123" type="text" />
+          </div>
+        </div>
+      </form>
+    </div>
+    <button
+      class="inline-flex bg-[#007b5e] text-white items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-11 rounded-md px-8 w-full button">
+      Place Order
+    </button>
   </div>
+</div>
+
+<script>
+  // Esperar hasta que el DOM esté completamente cargado
+  document.addEventListener('DOMContentLoaded', (event) => {
+    // Recuperar los datos de localStorage
+    const form1 = JSON.parse(localStorage.getItem('form1'));
+    const form2 = JSON.parse(localStorage.getItem('form2'));
+
+    // Verificar si los datos están presentes y actualizar el DOM
+    if (form1) {
+      document.getElementById('car-image').src = 'images/sedan.png'; // Cambia la imagen según el tipo de coche si es necesario
+      document.getElementById('car-type').textContent = `${form1.carType}`;
+      document.getElementById('car-subtotal').textContent = `$${form1.total}`;
+      document.getElementById('subtotal').textContent = `$${form1.total}`;
+      document.getElementById('discount').textContent = `-$0.50`; // Ejemplo de descuento
+      document.getElementById('total').textContent = `$${form1.total - 0.50}`; // Actualiza el total considerando el descuento
+    }
+
+    if (form2) {
+      document.getElementById('car-image').src = 'images/sedan.png'; // Cambia la imagen según el tipo de coche si es necesario
+      document.getElementById('car-type').textContent = `${form2.carType}`;
+      document.getElementById('car-subtotal').textContent = `$${form2.total}`;
+      document.getElementById('subtotal').textContent = `$${form2.total}`;
+      document.getElementById('discount').textContent = `-$0.50`; // Ejemplo de descuento
+      document.getElementById('total').textContent = `$${form2.total - 0.50}`; // Actualiza el total considerando el descuento
+    }
+  });
+</script>
 </body>
 </html>

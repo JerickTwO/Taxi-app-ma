@@ -10,6 +10,8 @@ document.getElementById('taxiForm1').addEventListener('submit', function(event) 
   const passengers1 = document.querySelector('.passengers').value;
   const total1 = document.querySelector('#display-total-form1').innerText.replace('$', '');
 
+  // Log form values for debugging
+  console.log('Form 1 Values:', { pickup1, dropoff1, time1, carType1, date1, passengers1, total1 });
 
   // Store values in localStorage
   localStorage.setItem('form1', JSON.stringify({
@@ -22,8 +24,11 @@ document.getElementById('taxiForm1').addEventListener('submit', function(event) 
     total: total1
   }));
 
+  // Verify that data is stored correctly
+  console.log('Stored Form 1 Data:', JSON.parse(localStorage.getItem('form1')));
+
   // Redirect to cart page
-  window.location.href = 'cart.html';
+  window.location.href = 'checkout.html';
 });
 
 document.getElementById('taxiForm2').addEventListener('submit', function(event) {
@@ -34,21 +39,26 @@ document.getElementById('taxiForm2').addEventListener('submit', function(event) 
   const dropoff2 = document.querySelector('.dropoff-form2').value;
   const time2 = document.querySelector('.timepicker').value;
   const carType2 = document.querySelector('.car-type').value;
-  const date2 = document.querySelector('.date').value;
+  const date2 = document.querySelector('.datepicker').value;
   const passengers2 = document.querySelector('.passengers').value;
   const total2 = document.querySelector('#display-total-form2').innerText.replace('$', '');
+
+  // Log form values for debugging
+  console.log('Form 2 Values:', { pickup2, dropoff2, time2, carType2, date2, passengers2, total2 });
 
   // Store values in localStorage
   localStorage.setItem('form2', JSON.stringify({
     pickup: pickup2,
     dropoff: dropoff2,
-    timepicker: time2,
+    time: time2,
     carType: carType2,
-    datepicker: date2,
+    date: date2,
     passengers: passengers2,
     total: total2
   }));
 
+  // Verify that data is stored correctly
+  console.log('Stored Form 2 Data:', JSON.parse(localStorage.getItem('form2')));
 });
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -115,71 +125,13 @@ function initApp(pricingData) {
     form.querySelector('.passengers').max = carDetail.seats;
   }
 
-  function updateTotalForm1() {
-    const form = document.getElementById('form1');
-    if (!form) {
-      console.error('Formulario 1 no encontrado');
-      return;
-    }
+  function updateTotal(form, formNumber) {
     const carTypeElement = form.querySelector('.car-type');
     const passengersElement = form.querySelector('.passengers');
-    const dropoffElement = form.querySelector('.dropoff-form1');
-    const totalElement = form.querySelector('#display-total-form1');
+    const dropoffElement = form.querySelector(`.dropoff-form${formNumber}`);
+    const totalElement = form.querySelector(`#display-total-form${formNumber}`);
     if (!carTypeElement || !passengersElement || !dropoffElement || !totalElement) {
-      console.error('Elementos necesarios no encontrados en el formulario 1');
-      console.log('carTypeElement:', carTypeElement);
-      console.log('passengersElement:', passengersElement);
-      console.log('dropoffElement:', dropoffElement);
-      console.log('totalElement:', totalElement);
-      return;
-    }
-    const carType = carTypeElement.value;
-    const passengers = parseInt(passengersElement.value, 10);
-    const dropoff = dropoffElement.value;
-    const dropoffPrice = pricingData.interregional[dropoff] || pricingData.metropolitan[dropoff] || pricingData.ruralMetropolitana[dropoff];
-
-    if (!dropoffPrice) {
-      console.error('Precio de dropoff no encontrado para', dropoff);
-      return;
-    }
-
-    const basePrices = {
-      sedan: 50,
-      suv: 80
-    };
-
-    console.log(`Calculando total para: ${dropoff}, pasajeros: ${passengers}, tipo de carro: ${carType}`);
-
-    let passengerPrice = 0;
-    if (passengers <= 2) {
-      passengerPrice = dropoffPrice["1-2"];
-    } else {
-      passengerPrice = dropoffPrice[passengers] || dropoffPrice["1-2"];
-    }
-
-    console.log(`Precio base: ${basePrices[carType]}, Precio por pasajeros: ${passengerPrice}`);
-
-    const total = basePrices[carType] + passengerPrice;
-    form.querySelector('.total').value = total;
-    totalElement.innerText = `$${total}`;
-  }
-
-  function updateTotalForm2() {
-    const form = document.getElementById('form2');
-    if (!form) {
-      console.error('Formulario 2 no encontrado');
-      return;
-    }
-    const carTypeElement = form.querySelector('.car-type');
-    const passengersElement = form.querySelector('.passengers');
-    const dropoffElement = form.querySelector('.dropoff-form2');
-    const totalElement = form.querySelector('#display-total-form2');
-    if (!carTypeElement || !passengersElement || !dropoffElement || !totalElement) {
-      console.error('Elementos necesarios no encontrados en el formulario 2');
-      console.log('carTypeElement:', carTypeElement);
-      console.log('passengersElement:', passengersElement);
-      console.log('dropoffElement:', dropoffElement);
-      console.log('totalElement:', totalElement);
+      console.error('Elementos necesarios no encontrados en el formulario', formNumber);
       return;
     }
     const carType = carTypeElement.value;
@@ -229,22 +181,22 @@ function initApp(pricingData) {
     carTypeElement.addEventListener('change', () => {
       changeCarImage(form);
       if (dropoffElement1) {
-        updateTotalForm1();
+        updateTotal(form, 1);
       } else if (dropoffElement2) {
-        updateTotalForm2();
+        updateTotal(form, 2);
       }
     });
 
     if (dropoffElement1) {
-      dropoffElement1.addEventListener('change', updateTotalForm1);
+      dropoffElement1.addEventListener('change', () => updateTotal(form, 1));
     } else if (dropoffElement2) {
-      dropoffElement2.addEventListener('change', updateTotalForm2);
+      dropoffElement2.addEventListener('change', () => updateTotal(form, 2));
     }
     passengersElement.addEventListener('input', () => {
       if (dropoffElement1) {
-        updateTotalForm1();
+        updateTotal(form, 1);
       } else if (dropoffElement2) {
-        updateTotalForm2();
+        updateTotal(form, 2);
       }
     });
 
