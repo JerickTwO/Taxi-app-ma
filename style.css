@@ -9,8 +9,8 @@
     margin: 0 10px;
     border: none;
     border-radius: 15px;
-    background-color: #0ac001; /* Azul */
-    color: white;
+    background-color: #000; /* Azul */
+    color: #facc15;
     font-size: 16px;
     font-weight: 600;
     text-align: center;
@@ -19,12 +19,12 @@
   }
   
   #btn1:hover {
-    background-color: #099b01; /* Azul más oscuro */
+    background-color: #2d2d2d; /* Azul más oscuro */
   }
   
   #btn1:focus {
     outline: none;
-    box-shadow: 0 0 0 3px #0ce700b4; /* Azul semitransparente */
+    box-shadow: 0 0 0 3px #facc15; /* Azul semitransparente */
   }
   
   #btn1:active {
@@ -54,7 +54,7 @@
   
   #btn2:focus {
     outline: none;
-    box-shadow: 0 0 0 3px #ffcc00ac; /* Azul semitransparente */
+    box-shadow: 0 0 0 3px #000; /* Azul semitransparente */
   }
   
   #btn2:active {

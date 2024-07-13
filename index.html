@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html class="wide smoothscroll wow-animation" lang="en">
+
+<head>
+  <!-- Site Title-->
+  <title>Aero Viajes</title>
+  <meta name="format-detection" content="telephone=no" />
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta charset="utf-8" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/flowbite@2.4.1/dist/flowbite.min.js"></script>
+  <link rel="icon" style="filter: invert(99%) sepia(2%) saturate(15%) hue-rotate(119deg) brightness(106%) contrast(100%);" href="./images/logo3.jpeg" type="image/x-icon">
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Lato:300,400,700,300italic,900" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body class="bg-gray-100 flex flex-col align-center gap-14">
+  <!-- Navbar -->
+  <nav class="bg-yellow-400 fixed  w-full  z-20">
+    <div class=" px-16 flex flex-wrap items-center justify-between mx-auto py-2">
+      <a href="#" class="flex items-center space-x-3 rtl:space-x-reverse">
+        <img id="logotipo" class="self-center text-2xl font-semibold whitespace-nowrap w-[120px]" src="./images/logo3.png" alt="">
+      </a>
+      <button data-collapse-toggle="navbar-default" type="button"
+        class="inline-flex items-center text-dark w-10 h-10 justify-center text-sm  rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200  aria-controls="
+        navbar-default" aria-expanded="false">
+        <span class="sr-only">Open main menu</span>
+        <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M1 1h15M1 7h15M1 13h15" />
+        </svg>
+      </button>
+      <div class="hidden w-full md:block md:w-auto " id="navbar-default">
+        <ul id="navegador" class=" navbar-list font-medium flex flex-col p-4 md:p-0  text-[22px] rounded-lg md:flex-row md:space-x-8 rtl:space-x-reverse ">
+          <li>
+            <a href="index.html">Inicio</a>
+          </li>
+          <li>
+            <a href="./sobre nosotros.html">Sobre Nosotros</a>
+          </li>
+          <li>
+            <a href="servicios.html">Servicios</a>
+          </li>
+          <li>
+            <a href="#contacto" onclick="scrollToContact(event)">Contacto</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- End Navbar -->
+  <header id="fondo1" class="flex items-center page-header w-full" style="
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('images/bg_pasajera.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  width: 115%;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;">
+    <article id="txtotal" class="max-w-[63vw] pl-10 ">
+      <h1 id="textos" class="drop-shadow-2xl text-white text-[70px] lg:text-[85px] xl:text-[65px] font-bold" style="
+      text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);">
+        <span class="text-yellow-400">Recojo</span> desde el aeropuerto hacia su destino de turismo
+        <span class="text-yellow-400">las 24 hora del día</span>
+      </h1>
+      <h2 id="segundo">
+        Beneficios de nuestro servicio de transporte al Aeropuerto:<br><br>
+        <span class="text-yellow-400">• Comodidad y Puntualidad<br></span>
+        • Viajes cómodos y puntuales en vehículos modernos.<br>
+        <span class="text-yellow-400">• Seguridad y Confianza.<br></span>
+        • Conductores profesionales. <br>
+        • Flexibilidad y Personalización. <br>
+        <span class="text-yellow-400">• Pagos seguros </span> accesibles en Línea.
+        <button id="seccion2" class="btn-servicio" onclick="scrollToServices(event)">Adquirir Servicio</button>
+      </h2>
+    </article>
+  </header>
+
+  <!-- Botones para alternar formularios -->
+  <div id="btn-aeropuerto" class="flex justify-center my-0">
+    <button id="btn1" class="btnes1">Elige tu lugar de destino</button>
+    <button id="btn2" class="btnes2">Ir hacia el Aeropuerto</button>
+  </div>
+  
+
+  <!-- Formulario 1 -->
+  <div id="form1" class="form-container bg-white p-8 rounded-lg shadow-lg max-w-6xl w-full mx-auto my-12">
+    <form class="taxi-form md:flex gap-14" action="cart.html" method="GET">
+      <div class="car-image-container w-full text-center mb-6 md:mb-0 md:w-1/2 md:flex flex-col md:items-center md:justify-center">
+        <span class="car-type-label text-lg font-bold block">Sedán</span>
+        <img class="car-image" src="./images/sedan.png" alt="Sedan" class="w-42 mx-auto">
+        <div class="flex flex-row gap-6">
+          <p class="text-2xl font-bold text-dark">Total: <span class="text-green-600"></span><span id="display-total-form1" class="text-green-600">$0</span></p>
+        </div>
+      </div>
+      <div class="w-full grid gap-6 grid-cols-2 md:w-1/2 md:gap-6">
+        <div>
+          <label class="block">Desde</label>
+          <select class="form-control  pickup-form1" name="pickup" required>
+            <option value="Aeropuerto Santiago de Chile" disabled selected>Aeropuerto Santiago de Chile</option>
+          </select>
+        </div>
+        <div>
+          <label class="block">Hasta</label>
+          <select class="form-control dropoff-form1" name="dropoff" required>
+            <option value="" disabled selected>Selecciona tu ubicación</option>
+          </select>
+        </div>
+        <div>
+          <label class="block">Hora</label>
+          <input type="text" class="form-control timepicker" name="time" placeholder="Elige la hora" required>
+        </div>
+        <div>
+          <label class="block">Vehículo</label>
+          <select class="form-control car-type" name="car-type" required>
+            <option value="sedan">Sedán</option>
+            <option value="suv">Suv</option>
+          </select>
+        </div>
+        <div class="">
+          <label class="block">Fecha</label>
+          <input class="form-control date" type="text" name="date" placeholder="Elige una fecha" required>
+        </div>
+        <div class="">
+          <label class="block">Pasajeros</label>
+          <input class="form-control passengers" type="number" name="passengers" min="1" max="5" value="2" required>
+        </div>
+        <input type="hidden" class="total" name="total">
+        <div class="btn-submit col-span-2">
+          <button type="submit">BUSCAR TAXIS</button>
+        </div>
+      </div>
+    </form>
+  </div>
+  
+  <div id="form2" class="form-container bg-white p-8 rounded-lg shadow-lg max-w-6xl w-full mx-auto my-12 hidden">
+    <form class="taxi-form md:flex gap-14" action="cart.html" method="GET">
+      <div class="car-image-container w-full text-center mb-6 md:mb-0 md:w-1/2 md:flex flex-col md:items-center md:justify-center">
+        <span class="car-type-label text-lg font-bold block">Sedán</span>
+        <img class="car-image" src="./images/sedan.png" alt="Sedan" class="w-42 mx-auto">
+        <div class="flex flex-row gap-6">
+          <p class="text-2xl font-bold text-dark">Total: <span class="text-green-600"></span><span id="display-total-form2" class="text-green-600">$0</span></p>
+        </div>
+      </div>
+      <div class="w-full grid gap-6 grid-cols-2 md:w-1/2 md:gap-6">
+        <div>
+          <label class="block">Desde</label>
+          <select class="form-control dropoff-form2" name="dropoff" required>
+            <option value="" disabled selected>Selecciona tu destino</option>
+          </select>
+        </div>
+        <div>
+          <label class="block">Hasta</label>
+          <select class="form-control pickup-form2" name="pickup" required>
+            <option value="Aeropuerto Santiago de Chile" disabled selected>Aeropuerto Santiago de Chile</option>
+          </select>
+        </div>
+        <div>
+          <label class="block">Hora</label>
+          <input type="text" class="form-control timepicker" name="time" placeholder="Elige la hora" required>
+        </div>
+        <div>
+          <label class="block">Vehículo</label>
+          <select class="form-control car-type" name="car-type" required>
+            <option value="sedan">Sedán</option>
+            <option value="suv">Suv</option>
+          </select>
+        </div>
+        <div class="">
+          <label class="block">Fecha</label>
+          <input class="form-control date" type="text" name="date" placeholder="Elige una fecha" required>
+        </div>
+        <div class="">
+          <label class="block">Pasajeros</label>
+          <input class="form-control passengers" type="number" name="passengers" min="1" max="5" value="2" required>
+        </div>
+        <input type="hidden" class="total" name="total">
+        <div class="btn-submit col-span-2">
+          <button type="submit">BUSCAR TAXIS</button>
+        </div>
+      </div>
+    </form>
+  </div>
+  
+  
+
+  <!-- About Us -->
+  <div class="mx-auto px-4 py-8">
+    <div class="flex flex-col lg:flex-row items-center gap-20 ">
+      <!-- Fondo decorativo -->      
+      <picture class="img-container  flex flex-col items-center">
+        <img class="image_turistas" src="images/turistas-img.png" alt="">
+      </picture>
+      <div id="nosotros" class="w-[420px] md:w-1/2 ">
+        <p class="mb-4">
+          <h2 class="text-4xl md:text-5xl md:text-left text-center lg:text-8xl font-bold mb-4 ">Sobre <span class="md:block">Nosotros</span></h2>
+          En <span class="text-yellow-400 bg-white font-bold">Transportes Aeroviajes</span>, nos especializamos en brindar un servicio de transporte privado al Aeropuerto de primer nivel, para que tu viaje comience o finalice de la mejor manera.
+        </p>
+        <p class="mb-4 font-bold">Tenemos para tí:</p>
+        <ul class="list-disc list-inside space-y-2">
+          <li class="flex items-center"><i class="fas fa-chevron-right text-yellow-500 mr-2"></i>Experiencia y confiabilidad</li>
+          <li class="flex items-center"><i class="fas fa-chevron-right text-yellow-500 mr-2"></i>Compromiso con la excelencia</li>
+          <li class="flex items-center"><i class="fas fa-chevron-right text-yellow-500 mr-2"></i>Flota moderna y segura</li>
+          <li class="flex items-center"><i class="fas fa-chevron-right text-yellow-500 mr-2"></i>Conductores profesionales</li>
+          <li class="flex items-center"><i class="fas fa-chevron-right text-yellow-500 mr-2"></i>Tecnología de punta</li>
+          <li class="flex items-center"><i class="fas fa-chevron-right text-yellow-500 mr-2"></i>Atención personalizada</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <!-- End About Us -->
+
+  <!-- Contact Section -->
+  <section class="container mx-auto my-12" id="contacto">
+    <div class="max-w-4xl p-6 mx-auto bg-white rounded-md shadow-md">
+      <h2 class="text-2xl font-bold mb-4 text-center">Contacto</h2>
+      <form id="contact-form" class="space-y-4" action="https://formspree.io/f/mvgpolpa" method="POST">
+        <div class="flex flex-col md:flex-row md:gap-4">
+          <div class="flex-1">
+            <label for="name" class="block">Nombre</label>
+            <input type="text" id="name" class="form-control" placeholder="Tu nombre">
+          </div>
+          <div class="flex-1">
+            <label for="email" class="block">Correo Electrónico</label>
+            <input type="email" name="email" id="email" class="form-control" placeholder="Tu correo electrónico">
+          </div>
+        </div>
+        <div>
+          <label for="message" class="block">Mensaje</label>
+          <textarea id="message" name="message" class="form-control" rows="4" placeholder="Tu mensaje"></textarea>
+        </div>
+        <div class="text-center">
+          <button type="submit" class="w-full bg-black text-white py-2 rounded mt-4">Enviar</button>
+        </div>
+      </form>
+    </div>
+  </section>
+  <!-- Footer -->
+  <footer class="bg-white  text-white py-4">
+    <div class=" px-12 text-gray-900">
+      <div class="flex flex-wrap  justify-between ">
+        <div>
+          <p class="text-gray-900">&copy; 2024 Aero Viajes. Todos los derechos reservados.</p>
+        </div>
+        <nav>
+          <ul class="flex flex-row justify-between gap-6 ">
+            <li><a href="#" class="hover:underline">Terminos y Condiciones</a></li>
+            <li><a href="#" class="hover:underline">Privacidad</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+  <script src="./js/app.js" type="module"></script>
+  <!-- Incluye el archivo de localización en español -->
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/es.js"></script>
+</body>
+
+</html>
