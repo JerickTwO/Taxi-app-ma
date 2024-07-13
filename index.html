@@ -90,7 +90,7 @@
 
   <!-- Formulario 1 -->
   <div id="form1" class="form-container bg-white p-8 rounded-lg shadow-lg max-w-6xl w-full mx-auto my-12">
-    <form class="taxi-form md:flex gap-14" action="cart.html" method="GET">
+    <form class="taxi-form md:flex gap-14" action="cart.html" method="GET" id="taxiForm1">
       <div class="car-image-container w-full text-center mb-6 md:mb-0 md:w-1/2 md:flex flex-col md:items-center md:justify-center">
         <span class="car-type-label text-lg font-bold block">Sedán</span>
         <img class="car-image" src="./images/sedan.png" alt="Sedan" class="w-42 mx-auto">
@@ -113,7 +113,7 @@
         </div>
         <div>
           <label class="block">Hora</label>
-          <input type="text" class="form-control timepicker" name="time" placeholder="Elige la hora" required>
+          <input  type="text" class="form-control timepicker" name="time" placeholder="Elige la hora" required>
         </div>
         <div>
           <label class="block">Vehículo</label>
@@ -124,7 +124,7 @@
         </div>
         <div class="">
           <label class="block">Fecha</label>
-          <input class="form-control date" type="text" name="date" placeholder="Elige una fecha" required>
+          <input class="form-control datepicker" type="text" name="date" placeholder="Elige una fecha" required>
         </div>
         <div class="">
           <label class="block">Pasajeros</label>
@@ -139,7 +139,7 @@
   </div>
   
   <div id="form2" class="form-container bg-white p-8 rounded-lg shadow-lg max-w-6xl w-full mx-auto my-12 hidden">
-    <form class="taxi-form md:flex gap-14" action="cart.html" method="GET">
+    <form class="taxi-form md:flex gap-14" action="cart.html" method="GET" id="taxiForm2" >
       <div class="car-image-container w-full text-center mb-6 md:mb-0 md:w-1/2 md:flex flex-col md:items-center md:justify-center">
         <span class="car-type-label text-lg font-bold block">Sedán</span>
         <img class="car-image" src="./images/sedan.png" alt="Sedan" class="w-42 mx-auto">
@@ -173,7 +173,7 @@
         </div>
         <div class="">
           <label class="block">Fecha</label>
-          <input class="form-control date" type="text" name="date" placeholder="Elige una fecha" required>
+          <input class="form-control datepicker" type="text" name="date" placeholder="Elige una fecha" required>
         </div>
         <div class="">
           <label class="block">Pasajeros</label>

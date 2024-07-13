@@ -1,3 +1,56 @@
+document.getElementById('taxiForm1').addEventListener('submit', function(event) {
+  event.preventDefault(); // Prevent default form submission
+
+  // Get form values
+  const pickup1 = document.querySelector('.pickup-form1').value;
+  const dropoff1 = document.querySelector('.dropoff-form1').value;
+  const time1 = document.querySelector('.timepicker').value;
+  const carType1 = document.querySelector('.car-type').value;
+  const date1 = document.querySelector('.datepicker').value;
+  const passengers1 = document.querySelector('.passengers').value;
+  const total1 = document.querySelector('#display-total-form1').innerText.replace('$', '');
+
+
+  // Store values in localStorage
+  localStorage.setItem('form1', JSON.stringify({
+    pickup: pickup1,
+    dropoff: dropoff1,
+    time: time1,
+    carType: carType1,
+    date: date1,
+    passengers: passengers1,
+    total: total1
+  }));
+
+  // Redirect to cart page
+  window.location.href = 'cart.html';
+});
+
+document.getElementById('taxiForm2').addEventListener('submit', function(event) {
+  event.preventDefault(); // Prevent default form submission
+
+  // Get form values
+  const pickup2 = document.querySelector('.pickup-form2').value;
+  const dropoff2 = document.querySelector('.dropoff-form2').value;
+  const time2 = document.querySelector('.timepicker').value;
+  const carType2 = document.querySelector('.car-type').value;
+  const date2 = document.querySelector('.date').value;
+  const passengers2 = document.querySelector('.passengers').value;
+  const total2 = document.querySelector('#display-total-form2').innerText.replace('$', '');
+
+  // Store values in localStorage
+  localStorage.setItem('form2', JSON.stringify({
+    pickup: pickup2,
+    dropoff: dropoff2,
+    timepicker: time2,
+    carType: carType2,
+    datepicker: date2,
+    passengers: passengers2,
+    total: total2
+  }));
+
+});
+
 document.addEventListener('DOMContentLoaded', () => {
   console.log("DOM completamente cargado y parseado");
 
@@ -21,7 +74,7 @@ function initApp(pricingData) {
   console.log('Iniciando aplicación...');
 
   // Inicializa los pickers de fecha y hora para todos los formularios
-  document.querySelectorAll('.date').forEach(element => {
+  document.querySelectorAll('.datepicker').forEach(element => {
     flatpickr(element, {
       altInput: true,
       altFormat: "F j, Y",

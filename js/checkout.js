@@ -1,14 +1,14 @@
 
-  document.getElementById('checkout-form').addEventListener('submit', function(event) {
+  document.querySelectorAll('checkout-form').addEventListener('submit', function(event) {
     event.preventDefault();
     
     // Validación básica del formulario 
-    const name = document.getElementById('name').value;
-    const email = document.getElementById('email').value;
-    const address = document.getElementById('address').value;
-    const cardNumber = document.getElementById('card-number').value;
-    const expiryDate = document.getElementById('expiry-date').value;
-    const cvc = document.getElementById('cvc').value;
+    const name = document.querySelectorAll('name').value;
+    const email = document.querySelectorAll('email').value;
+    const address = document.querySelectorAll('address').value;
+    const cardNumber = document.querySelectorAll('card-number').value;
+    const expiryDate = document.querySelectorAll('expiry-date').value;
+    const cvc = document.querySelectorAll('cvc').value;
 
     if (!name || !email || !address || !cardNumber || !expiryDate || !cvc) {
       alert('Please fill out all fields.');
