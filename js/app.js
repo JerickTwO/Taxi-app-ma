@@ -13,8 +13,8 @@ document.getElementById('taxiForm1').addEventListener('submit', function(event) 
   // Log form values for debugging
   console.log('Form 1 Values:', { pickup1, dropoff1, time1, carType1, date1, passengers1, total1 });
 
-  // Store values in localStorage
-  localStorage.setItem('form1', JSON.stringify({
+  // Store values in sessionStorage
+  sessionStorage.setItem('form1', JSON.stringify({
     pickup: pickup1,
     dropoff: dropoff1,
     time: time1,
@@ -25,7 +25,7 @@ document.getElementById('taxiForm1').addEventListener('submit', function(event) 
   }));
 
   // Verify that data is stored correctly
-  console.log('Stored Form 1 Data:', JSON.parse(localStorage.getItem('form1')));
+  console.log('Stored Form 1 Data:', JSON.parse(sessionStorage.getItem('form1')));
 
   // Redirect to cart page
   window.location.href = 'checkout.html';
@@ -46,8 +46,8 @@ document.getElementById('taxiForm2').addEventListener('submit', function(event) 
   // Log form values for debugging
   console.log('Form 2 Values:', { pickup2, dropoff2, time2, carType2, date2, passengers2, total2 });
 
-  // Store values in localStorage
-  localStorage.setItem('form2', JSON.stringify({
+  // Store values in sessionStorage
+  sessionStorage.setItem('form2', JSON.stringify({
     pickup: pickup2,
     dropoff: dropoff2,
     time: time2,
@@ -58,7 +58,7 @@ document.getElementById('taxiForm2').addEventListener('submit', function(event) 
   }));
 
   // Verify that data is stored correctly
-  console.log('Stored Form 2 Data:', JSON.parse(localStorage.getItem('form2')));
+  console.log('Stored Form 2 Data:', JSON.parse(sessionStorage.getItem('form2')));
 });
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -204,13 +204,13 @@ function initApp(pricingData) {
   });
 
   document.getElementById('btn1').addEventListener('click', () => {
-    document.getElementById('form1').classList.remove('hidden');
-    document.getElementById('form2').classList.add('hidden');
+    document.getElementById('form1').style.display = 'block';
+    document.getElementById('form2').style.display = 'none';
   });
 
   document.getElementById('btn2').addEventListener('click', () => {
-    document.getElementById('form1').classList.add('hidden');
-    document.getElementById('form2').classList.remove('hidden');
+    document.getElementById('form1').style.display = 'none';
+    document.getElementById('form2').style.display = 'block';
   });
 
   const dropoffSelectForm1 = document.querySelector('.dropoff-form1');
@@ -229,18 +229,32 @@ function initApp(pricingData) {
   const allLocations = { ...pricingData.interregional, ...pricingData.metropolitan, ...pricingData.ruralMetropolitana };
 
   Object.keys(allLocations).forEach(location => {
+    const option1 = document.createElement('option');
+    option1.value = location;
+    option1.textContent = location;
     if (dropoffSelectForm1) {
-      const option1 = document.createElement('option');
-      option1.value = location;
-      option1.textContent = location;
       dropoffSelectForm1.appendChild(option1);
     }
 
+    const option2 = document.createElement('option');
+    option2.value = location;
+    option2.textContent = location;
     if (pickupSelectForm2) {
-      const option2 = document.createElement('option');
-      option2.value = location;
-      option2.textContent = location;
       pickupSelectForm2.appendChild(option2);
     }
   });
 }
+
+// Limpiar formularios al retroceder
+window.addEventListener('pageshow', (event) => {
+  if (event.persisted || (window.performance && window.performance.navigation.type === 2)) {
+    // Limpiar los formularios
+    document.querySelectorAll('form').forEach(form => {
+      form.reset();
+    });
+
+    // Limpiar sessionStorage
+    sessionStorage.removeItem('form1');
+    sessionStorage.removeItem('form2');
+  }
+});
