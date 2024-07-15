@@ -1,68 +1,15 @@
-document.getElementById('taxiForm1').addEventListener('submit', function(event) {
-  event.preventDefault(); // Prevent default form submission
+// Esperar hasta que el DOM esté completamente cargado
+window.addEventListener('pageshow', (event) => {
+  // Limpiar sessionStorage para resetear valores
+  sessionStorage.removeItem('form1');
+  sessionStorage.removeItem('form2');
 
-  // Get form values
-  const pickup1 = document.querySelector('.pickup-form1').value;
-  const dropoff1 = document.querySelector('.dropoff-form1').value;
-  const time1 = document.querySelector('.timepicker').value;
-  const carType1 = document.querySelector('.car-type').value;
-  const date1 = document.querySelector('.datepicker').value;
-  const passengers1 = document.querySelector('.passengers').value;
-  const total1 = document.querySelector('#display-total-form1').innerText.replace('$', '');
-
-  // Log form values for debugging
-  console.log('Form 1 Values:', { pickup1, dropoff1, time1, carType1, date1, passengers1, total1 });
-
-  // Store values in localStorage
-  localStorage.setItem('form1', JSON.stringify({
-    pickup: pickup1,
-    dropoff: dropoff1,
-    time: time1,
-    carType: carType1,
-    date: date1,
-    passengers: passengers1,
-    total: total1
-  }));
-
-  // Verify that data is stored correctly
-  console.log('Stored Form 1 Data:', JSON.parse(localStorage.getItem('form1')));
-
-  // Redirect to cart page
-  window.location.href = 'checkout.html';
-});
-
-document.getElementById('taxiForm2').addEventListener('submit', function(event) {
-  event.preventDefault(); // Prevent default form submission
-
-  // Get form values
-  const pickup2 = document.querySelector('.pickup-form2').value;
-  const dropoff2 = document.querySelector('.dropoff-form2').value;
-  const time2 = document.querySelector('.timepicker').value;
-  const carType2 = document.querySelector('.car-type').value;
-  const date2 = document.querySelector('.datepicker').value;
-  const passengers2 = document.querySelector('.passengers').value;
-  const total2 = document.querySelector('#display-total-form2').innerText.replace('$', '');
-
-  // Log form values for debugging
-  console.log('Form 2 Values:', { pickup2, dropoff2, time2, carType2, date2, passengers2, total2 });
-
-  // Store values in localStorage
-  localStorage.setItem('form2', JSON.stringify({
-    pickup: pickup2,
-    dropoff: dropoff2,
-    time: time2,
-    carType: carType2,
-    date: date2,
-    passengers: passengers2,
-    total: total2
-  }));
-
-  // Verify that data is stored correctly
-  console.log('Stored Form 2 Data:', JSON.parse(localStorage.getItem('form2')));
-});
-
-document.addEventListener('DOMContentLoaded', () => {
   console.log("DOM completamente cargado y parseado");
+
+  // Restablecer los valores por defecto en los select
+  document.querySelectorAll('select').forEach(select => {
+    select.selectedIndex = 0; // Seleccionar la opción por defecto
+  });
 
   fetch('./locations/pricing.json')
     .then(response => {
@@ -89,7 +36,8 @@ function initApp(pricingData) {
       altInput: true,
       altFormat: "F j, Y",
       dateFormat: "Y-m-d",
-      minDate: "today"
+      minDate: "today",
+      locale: "es"
     });
   });
 
@@ -214,33 +162,96 @@ function initApp(pricingData) {
   });
 
   const dropoffSelectForm1 = document.querySelector('.dropoff-form1');
-  const pickupSelectForm2 = document.querySelector('.dropoff-form2');
+  const dropoffSelectForm2 = document.querySelector('.dropoff-form2');
 
   console.log('dropoffSelectForm1:', dropoffSelectForm1);
-  console.log('pickupSelectForm2:', pickupSelectForm2);
+  console.log('dropoffSelectForm2:', dropoffSelectForm2);
 
   if (!dropoffSelectForm1) {
     console.error('dropoffSelectForm1 no encontrado');
   }
-  if (!pickupSelectForm2) {
-    console.error('pickupSelectForm2 no encontrado');
+  if (!dropoffSelectForm2) {
+    console.error('dropoffSelectForm2 no encontrado');
   }
 
   const allLocations = { ...pricingData.interregional, ...pricingData.metropolitan, ...pricingData.ruralMetropolitana };
 
   Object.keys(allLocations).forEach(location => {
+    const option1 = document.createElement('option');
+    option1.value = location;
+    option1.textContent = location;
     if (dropoffSelectForm1) {
-      const option1 = document.createElement('option');
-      option1.value = location;
-      option1.textContent = location;
       dropoffSelectForm1.appendChild(option1);
     }
-
-    if (pickupSelectForm2) {
-      const option2 = document.createElement('option');
-      option2.value = location;
-      option2.textContent = location;
-      pickupSelectForm2.appendChild(option2);
+    const option2 = document.createElement('option');
+    option2.value = location;
+    option2.textContent = location;
+    if (dropoffSelectForm2) {
+      dropoffSelectForm2.appendChild(option2);
     }
   });
 }
+
+// Manejar la presentación del formulario y almacenamiento en sessionStorage
+document.getElementById('taxiForm1').addEventListener('submit', function(event) {
+  event.preventDefault(); // Prevent default form submission
+
+  // Get form values
+  const pickup1 = document.querySelector('.pickup-form1').value;
+  const dropoff1 = document.querySelector('.dropoff-form1').value;
+  const time1 = document.querySelector('.timepicker').value;
+  const carType1 = document.querySelector('.car-type').value;
+  const date1 = document.querySelector('.datepicker').value;
+  const passengers1 = document.querySelector('.passengers').value;
+  const total1 = document.querySelector('#display-total-form1').innerText.replace('$', '');
+
+  // Log form values for debugging
+  console.log('Form 1 Values:', { pickup1, dropoff1, time1, carType1, date1, passengers1, total1 });
+
+  // Store values in sessionStorage
+  sessionStorage.setItem('form1', JSON.stringify({
+    pickup: pickup1,
+    dropoff: dropoff1,
+    time: time1,
+    carType: carType1,
+    date: date1,
+    passengers: passengers1,
+    total: total1
+  }));
+
+  // Redirect to cart page
+  window.location.href = 'checkout.html';
+});
+
+document.getElementById('taxiForm2').addEventListener('submit', function(event) {
+  event.preventDefault(); // Prevent default form submission
+
+  // Get form values
+  const pickup2 = document.querySelector('.pickup-form2').value;
+  const dropoff2 = document.querySelector('.dropoff-form2').value;
+  const time2 = document.querySelector('.timepicker').value;
+  const carType2 = document.querySelector('.car-type').value;
+  const date2 = document.querySelector('.datepicker').value;
+  const passengers2 = document.querySelector('.passengers').value;
+  const total2 = document.querySelector('#display-total-form2').innerText.replace('$', '');
+
+  // Log form values for debugging
+  console.log('Form 2 Values:', { pickup2, dropoff2, time2, carType2, date2, passengers2, total2 });
+
+  // Store values in sessionStorage
+  sessionStorage.setItem('form2', JSON.stringify({
+    pickup: pickup2,
+    dropoff: dropoff2,
+    time: time2,
+    carType: carType2,
+    date: date2,
+    passengers: passengers2,
+    total: total2
+  }));
+
+  // Verify that data is stored correctly
+  console.log('Stored Form 2 Data:', JSON.parse(sessionStorage.getItem('form2')));
+
+  // Redirect to cart page
+  window.location.href = 'checkout.html';
+});
