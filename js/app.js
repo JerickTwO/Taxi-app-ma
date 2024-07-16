@@ -36,8 +36,7 @@ function initApp(pricingData) {
       altInput: true,
       altFormat: "F j, Y",
       dateFormat: "Y-m-d",
-      minDate: "today",
-      locale: "es"
+      minDate: "today"
     });
   });
 
